@@ -1,0 +1,213 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("first_scene.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+#dica{
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    text-align: justify;
+    color: black;
+    animation: fadeIn ease 20s;
+  -webkit-animation: fadeIn ease 20s;
+  -moz-animation: fadeIn ease 20s;
+  -o-animation: fadeIn ease 20s;
+  -ms-animation: fadeIn ease 20s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
+.timer{
+    position: absolute;
+    left: 1180px;
+    top: 30px;
+    height: 48px;
+    width:48px;
+}
+
+#timer_contador{
+    position: absolute;
+    left: 1140px;
+    top: 25px;
+}
+
+.contagio{
+    position: absolute;
+    left: 1280px;
+    top: 30px;
+}
+
+#contagio_contador{
+    position: absolute;
+    left: 1250px;
+    top: 25px;
+}
+
+#computador{
+    position: absolute;
+    height: 75px;
+    width: 190px;
+    left: 230px;
+    top: 410px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#banco{
+    position: absolute;
+    height: 250px;
+    width: 500px;
+    left: 600px;
+    top: 420px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#janela{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: 720px;
+    top: 70px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#getout{
+    position: absolute;
+    left: 1230px;
+    top: 350px;
+    width:48px;
+    height:48px;
+    cursor: pointer;
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+    -ms-animation: fadeIn ease 20s;
+}
+
+#getout2{
+  visibility: hidden;
+  position: absolute;
+  left: 1230px;
+  top: 250px;
+  width:48px;
+  height:48px;
+  cursor: pointer;
+  animation: fadeIn ease 20s;
+  -webkit-animation: fadeIn ease 20s;
+  -moz-animation: fadeIn ease 20s;
+  -o-animation: fadeIn ease 20s;
+  -ms-animation: fadeIn ease 20s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

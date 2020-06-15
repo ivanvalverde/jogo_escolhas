@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="jogo-style.css">
+</head>
+
+<body>
+
+    <div id="scene">
+
+        <p id="start_option">Press <a onclick="passa()">START</a> to play</p>
+
+    </div>
+
+    <script>
+
+
+        function passa(){
+            var value1=0;
+            var value2=50;
+            var queryString = "?" + value1 + "&" + value2;
+            window.location.href = "start_pressed.html" + queryString;
+        }
+        
+
+    </script>
+
+
+    
+
+
+
+</body>
+
+
+
+
+
+</html>

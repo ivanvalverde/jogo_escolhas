@@ -1,0 +1,13 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("twitter.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}

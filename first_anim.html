@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="first_anim-style.css">
+</head>
+
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio()">
+
+    <script>
+        
+
+        var contagio;
+        var tempo;
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        contagio = queries[0];
+        tempo = queries[1];
+
+        
+
+        function receberTempo(){
+            var tempoMax = document.getElementById("timer_contador");
+            tempoMax.value = tempo;
+            return tempoMax.value;
+        }   
+
+        function receberContagio(){
+            var contagioMin = document.getElementById("contagio_contador");
+            contagioMin.value = contagio;
+            return contagioMin.value;
+        }
+
+        function passa(){
+            var queryString = "?" + contagio + "&" + tempo;
+            window.location.href = "primeiras_escolhas.html" + queryString;
+        }
+
+
+        setTimeout("passa()", 3600)
+
+    </script>
+
+    
+
+    <div id="scene">
+
+    </div>
+
+    <p id="timer_contador"></p>
+    <img src="clock.gif" class="timer">
+
+
+    <p id="contagio_contador"></p>
+    <img src="CODIV18.png" class="contagio">
+    
+
+
+</body>
+
+</html>

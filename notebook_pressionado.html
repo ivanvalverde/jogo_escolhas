@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook_pressionado-style.css">
+</head>
+
+<body>
+
+    <script>
+
+        var contagio;
+        var tempo;
+        var ministro_visto = true;
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        contagio = queries[0];
+        tempo = queries[1];
+
+        function passa(){
+            tempo = tempo - 1;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            window.location.href = "primeiras_escolhas.html" + queryString;
+        }
+
+        setTimeout("passa()",10000)
+
+    </script>
+
+    
+
+    <div id="scene">
+
+    </div>
+    
+
+
+</body>
+
+</html>

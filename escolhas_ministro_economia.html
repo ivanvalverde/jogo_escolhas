@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="escolhas_ministro_economia-style.css">
+</head>
+
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio()">
+
+    <script>
+        
+
+        var contagio;
+        var tempo;
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        contagio = queries[0];
+        tempo = queries[1];
+        ministro_visto = queries[2];
+        var contadorBotao1 = 0;
+
+        
+        function dialogoGuedes1(){
+            contadorBotao1 = contadorBotao1 + 1;
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta2 = document.getElementById("resposta2");
+            var pergunta = document.getElementById("pergunta");
+
+            if (contadorBotao1 <= 1){
+                pergunta.style.visibility = "hidden";
+                resposta1.style.visibility = "visible";
+                resposta2.style.visibility = "visible";
+                texto.value = '"Estamos com a verba disponível para investir em alguma medida, qual será?"';
+            } else{
+                texto.value = '"Acabei de conversar sobre o assunto com o sr Presidente."';
+            }
+            return texto.value;
+        }
+
+        function dialogoGuedes2(){
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta11 = document.getElementById("resposta11");
+            var resposta2 = document.getElementById("resposta2");
+            texto.value = '"Para onde iremos redirecionar?"';
+            resposta1.style.visibility = "hidden";
+            resposta2.style.visibility = "hidden";
+            resposta11.style.visibility = "visible";
+            return texto.value;
+        }
+
+        function dialogoGuedes2resposta(){
+            var texto = document.getElementById("falas");
+            var resposta11 = document.getElementById("resposta11");
+            contagio = parseInt(contagio) + 10;
+            texto.value = '"Como o sr quiser Presidente."';
+            resposta11.style.visibility = "hidden";
+            return texto.value;
+        }
+
+        function dialogoGuedes3(){
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta2 = document.getElementById("resposta2");
+            texto.value = '"Ok, como o sr quiser."';
+            resposta1.style.visibility = "hidden";
+            resposta2.style.visibility = "hidden";
+            return texto.value;
+        }
+
+        function dialogoGuedes4(){
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta2 = document.getElementById("resposta2");
+            var resposta11 = document.getElementById("resposta11");
+            var pergunta = document.getElementById("pergunta");
+            var sairConversa = document.getElementById("sairConversa");
+            texto.value = '';
+            resposta1.style.visibility = "hidden";
+            resposta11.style.visibility = "hidden";
+            resposta2.style.visibility = "hidden";
+            pergunta.style.visibility = "hidden";
+            sairConversa.style.visibility = "hidden";
+            return texto.value;
+        }
+
+        function clicarNoMinistro(){
+            tempo = tempo - 1;
+            var falas = document.getElementById("falas");
+            var pergunta = document.getElementById("pergunta");
+            var sairConversa = document.getElementById("sairConversa");
+            pergunta.style.visibility = "visible";
+            sairConversa.style.visibility = "visible";
+            falas.style.visibility = "visible"
+        }
+
+
+
+        function receberTempo(){
+            var tempoMax = document.getElementById("timer_contador");
+            tempoMax.value = tempo;
+            return tempoMax.value;
+        }   
+
+        function receberContagio(){
+            var contagioMin = document.getElementById("contagio_contador");
+            contagioMin.value = contagio;
+            return contagioMin.value;
+        }
+
+        function passa(){
+            tempo = tempo-1;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;;
+            window.location.href = "pos_janela_escolhas.html" + queryString;
+        }
+
+        function passa_tempo(){
+            tempo = tempo - 1;
+        }
+
+        function clicarPoltrona(){
+
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            window.location.href = "sentar_anim_ministro_economia.html" + queryString;
+        }
+
+        setInterval("passa_tempo()", 5000)
+
+    </script>
+
+    <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes1()" class="dialogo1" id="pergunta">Como andam os preparativos para a quarentena?</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes2()" class="dialogo2" id="resposta1">Ao invés de dar auxílio, vamos redirecionar essa verba.</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes3()" class="dialogo3" id="resposta2">Precisamos ajudar o povo em necessidade!!!</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes2resposta()" class="dialogo21" id="resposta11">Para os nossos bolsos, tá ok?!?</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes4()" class="dialogo4" id="sairConversa">Nada, tá ok?!?</button>
+
+    <button id="telefone" onclick=""></button>
+    <button id="poltrona" onclick="clicarPoltrona()"></button>
+    <button id="guedes" onclick="clicarNoMinistro()"></button>
+    
+
+    <div id="scene">
+        <p id="falas">Ministro da economia:"Bom dia Presidente! O que o sr deseja?"</p>
+    </div>
+
+    <p id="timer_contador"></p>
+    <img src="clock.gif" class="timer">
+
+
+    <p id="contagio_contador"></p>
+    <img src="CODIV18.png" class="contagio">
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+
+body{
+    font-family: Tahoma;
+    font-size: 40px;
+    margin:0 0 0 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#scene{
+    background-image: url("burning.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+#start_option{
+    position: absolute;
+    left: 920px;
+    top: 20px;
+
+}
+
+a:hover{
+    color:#FF0000;
+    transition: 1s;
+    cursor: pointer;
+}

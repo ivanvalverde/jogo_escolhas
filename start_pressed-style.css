@@ -1,0 +1,61 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.dialogos{
+    position: absolute;
+    left: 300px;
+    top: 140px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#scene{
+    background-image: url("primeira_cena_sentados_conversando.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+#history{
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    text-align: justify;
+    
+
+}
+
+.timer{
+    position: absolute;
+    left: 1180px;
+    top: 30px;
+    height: 48px;
+    width:48px;
+}
+
+#timer_contador{
+    position: absolute;
+    left: 1140px;
+    top: 25px;
+}
+
+.contagio{
+    position: absolute;
+    left: 1280px;
+    top: 30px;
+}
+
+#contagio_contador{
+    position: absolute;
+    left: 1250px;
+    top: 25px;
+}
