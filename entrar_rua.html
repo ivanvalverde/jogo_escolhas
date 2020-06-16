@@ -35,10 +35,10 @@
 
         function passa(){
             tempo = tempo-1;
-            if ((parseInt(contagio) > 20) || tempo > 0){
-                window.location.href = "vitoria.html"
+            if ((parseInt(contagio) > 20) && (parseInt(tempo) > 0)){
+                window.location.href = "vitoria.html";
             } else{
-
+                window.location.href = "gameOver.html";
             }
 
         }
