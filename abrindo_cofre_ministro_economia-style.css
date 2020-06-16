@@ -1,0 +1,97 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("cofre_exposto_estatico_ministro_economia.png");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+.timer{
+    position: absolute;
+    left: 1180px;
+    top: 30px;
+    height: 48px;
+    width:48px;
+}
+
+#timer_contador{
+    position: absolute;
+    left: 1140px;
+    top: 25px;
+}
+
+.contagio{
+    position: absolute;
+    left: 1280px;
+    top: 30px;
+}
+
+#contagio_contador{
+    position: absolute;
+    left: 1250px;
+    top: 25px;
+}
+
+#lerMsg{
+    position: absolute;
+    left: 300px;
+    top: 160px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#mensagem{
+    position: absolute;
+    left: 200px;
+    top: 30px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#confirmar{
+    position: absolute;
+    left: 300px;
+    top: 160px;
+    min-width: 80px;
+    min-height: 20px;
+    cursor: pointer;
+    visibility: hidden;
+    border: none;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#errado{
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#campo{
+    position: absolute;
+    left: 280px;
+    top: 200px;
+    min-width: 80px;
+    min-height: 20px;
+    visibility: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

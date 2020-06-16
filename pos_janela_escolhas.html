@@ -19,6 +19,7 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2]
+        var saida = queries[3];
 
         function checaAcoes(){
             if (tempo <50){
@@ -29,6 +30,10 @@
             if (ministro_visto == "true"){
                 var novaSeta = document.getElementById("getout2");
                 novaSeta.style.visibility = "visible";
+            }
+
+            if (tempo <=0){
+                window.location.href = "gameOver.html"
             }
         }
 
@@ -51,7 +56,7 @@
 
         function descansando(){
             tempo = tempo -1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
             window.location.href = "janela_banco.html" + queryString;
         }
 
@@ -74,8 +79,12 @@
 
         function janelaSair(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
             window.location.href = "janela_sair.html" + queryString;
+        }
+
+        function trocaSaida(){
+            saida = 2;
         }
 
         setInterval("passa_tempo_observando()",5000)
@@ -87,7 +96,7 @@
     <button id="janela" onclick="verJanela()"></button>
 
     <img src="seta.png" id="getout" title="Ir para a sala do ministro da economia." onclick="janelaSair()">
-    <img src="seta2.png" id="getout2" title="Ir para a sala do ministro da saúde." onclick="mesaSair()">
+    <img src="seta2.png" id="getout2" title="Ir para a sala do ministro da saúde." onclick="trocaSaida();janelaSair()">
 
     <div id="scene">
         <p id="dica">Lá fora tem uma multidão cantando hinos com placas e rostos<br> pintados.Parecem enaltecer você, mas sinceramente, você não tá nem aí.<br>Só quer garantir seu posto pelos próximos anos no governo. Talvez<br>valha a pena ir lá para mostrar serviço.</p>

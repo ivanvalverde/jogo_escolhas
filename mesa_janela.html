@@ -18,7 +18,7 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2];
-        
+        var saida = queries[3];
 
         
 
@@ -36,7 +36,7 @@
 
         function passa(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
             window.location.href = "pos_janela_escolhas.html" + queryString;
         }
 

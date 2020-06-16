@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="escolhas_ministro_saude-style.css">
+</head>
+
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio();checaContagio()">
+
+    <script>
+        
+        var contador = 0;
+        var contagio;
+        var tempo;
+        var saida = 1;
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        contagio = queries[0];
+        tempo = queries[1];
+        ministro_visto = queries[2];
+        var contadorBotao1 = 0;
+        var contadorBotao1trazido = queries[3];
+
+        function checaContagio(){
+            var proibir = document.getElementById("salaMinistroEconomia");
+            if(parseInt(contagio) > 9){
+                proibir.style.visibility = "hidden";
+            }
+            if (tempo <=0){
+                window.location.href = "gameOver.html"
+            }
+        }
+
+        function dialogoMandetta1(){
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta2 = document.getElementById("resposta2");
+            var enxotar = document.getElementById("enxotar");
+            var sairConversa = document.getElementById("sairConversa");
+
+            enxotar.style.visibility = "hidden";
+            resposta1.style.visibility = "hidden";
+            sairConversa.style.visibility = "hidden";
+            resposta2.style.visibility = "visible";
+            texto.value = '"Porque o sr está me demitindo Presidente?"';
+            contadorBotao1 = contadorBotao1 + 1;
+            
+            return texto.value;
+        }
+
+        function dialogoMandetta2(){
+            contadorBotao1 = contadorBotao1 + 1;
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var enxotar = document.getElementById("enxotar");
+            texto.value = '"Muito Obrigado Presidente. Continuarei fazendo. Algo mais?"';
+            resposta1.style.visibility = "hidden";
+            enxotar.style.visibility = "hidden";
+            return texto.value;
+        }
+
+        function dialogoMandetta3(){
+            contagio = parseInt(contagio) + 10
+            var texto = document.getElementById("falas");
+            var resposta2 = document.getElementById("resposta2");
+            var sairConversa = document.getElementById("sairConversa");
+            texto.value = '"Ok, o que devo fazer para anunciar minha saída?."';
+            resposta2.style.visibility = "hidden";
+            sairConversa.style.visibility = "visible";
+            return texto.value;
+        }
+
+        function dialogoMandetta4(){
+            var texto = document.getElementById("falas");
+            var resposta1 = document.getElementById("resposta1");
+            var resposta2 = document.getElementById("resposta2");
+            var enxotar = document.getElementById("enxotar");
+            var sairConversa = document.getElementById("sairConversa");
+            texto.value = "";
+            resposta1.style.visibility = "hidden";
+            resposta2.style.visibility = "hidden";
+            enxotar.style.visibility = "hidden";
+            sairConversa.style.visibility = "hidden";
+            return texto.value;
+        }
+
+        function clicarTv(){
+            tempo = tempo - 1;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + contadorBotao1;
+            window.location.href = "ligarEdesligar_tv_ministro_saude.html" + queryString;
+        }
+
+
+        function receberTempo(){
+            var tempoMax = document.getElementById("timer_contador");
+            tempoMax.value = tempo;
+            return tempoMax.value;
+        }   
+
+        function receberContagio(){
+            var contagioMin = document.getElementById("contagio_contador");
+            contagioMin.value = contagio;
+            return contagioMin.value;
+        }
+
+        function passa(){
+            tempo = tempo-1;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            window.location.href = "pos_janela_escolhas.html" + queryString;
+        }
+
+        function passa_tempo(){
+            tempo = tempo - 1;
+        }
+
+        function clicarMinistroSaude(){
+
+            tempo = tempo - 1;
+            var texto = document.getElementById("falas");
+            var falas = document.getElementById("falas");
+            var enxotar = document.getElementById("enxotar");
+            var sairConversa = document.getElementById("sairConversa");
+            var resposta1 = document.getElementById("resposta1");
+
+            if ((contadorBotao1 < 1 && contadorBotao1trazido== "undefined")||(contadorBotao1 < 1 && parseInt(contadorBotao1trazido)<1)){
+                resposta1.style.visibility = "visible";
+                enxotar.style.visibility = "visible";
+                sairConversa.style.visibility = "visible";
+                falas.style.visibility = "visible"
+            } else{
+                sairConversa.style.visibility = "visible";
+                texto.value = '"O sr voltou na sua opinião Presidente?"';
+                falas.style.visibility = "hidden"
+                resposta1.style.visibility = "hidden";
+                enxotar.style.visibility = "hidden";
+                return texto.value;
+            }
+        }
+
+        function clicarAr(){
+            var warning = document.getElementById("ArClique");
+            if(contador <= 3){
+                warning.innerText = "Já está uma temperatura agradável!"
+                contador = contador +1
+                setTimeout(function(){warning.innerText = ""},1500)
+            } else{
+                warning.innerText = "Não quero congelar, inferno!"
+                setTimeout(function(){warning.innerText = ""},1500)
+            }
+        }
+
+        function saida1(){
+            ministro_visto = false;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
+            window.location.href = "sair_sala_ministro_saude.html" + queryString;
+        }
+
+        function trocaSaida(){
+            saida = 2;
+        }
+
+        setInterval("passa_tempo()", 5000)
+
+    </script>
+
+    <button onclick="document.getElementById('falas').innerHTML = dialogoMandetta1()" class="dialogo1" id="enxotar">Se manda vagabundo, tá ok?!??</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoMandetta2()" class="dialogo2" id="resposta1">Você está fazendo um ótimo trabalho!</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoMandetta3()" class="dialogo3" id="resposta2">A cloroquina já tá fazendo o seu papel, tá ok?!?</button>
+    <button onclick="document.getElementById('falas').innerHTML = dialogoMandetta4()" class="dialogo4" id="sairConversa">Nada, tá ok?!?</button>
+
+    <button id="ar" onclick="clicarAr()"></button>
+    <button id="ministroSaude" onclick="clicarMinistroSaude()"></button>
+    <button id="tv" onclick="clicarTv()"></button>
+
+    <img src="seta.png" id="salaoPrincipal" title="Ir para o salão principal" onclick="saida1()">
+    <img src="seta2.png" id="salaMinistroEconomia" title="Ir para a sala do ministro da economia" onclick="trocaSaida();saida1()">
+    
+
+    <div id="scene">
+        <p id="falas">Ministro da saúde:"Olá Presidente! O que te aflige?"</p>
+        <p id="ArClique"></p>
+    </div>
+
+    <p id="timer_contador"></p>
+    <img src="clock.gif" class="timer">
+
+
+    <p id="contagio_contador"></p>
+    <img src="CODIV18.png" class="contagio">
+    
+
+
+</body>
+
+</html>

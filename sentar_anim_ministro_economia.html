@@ -18,6 +18,7 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2];
+        var contadorBotao1 = queries[3];
 
         
 
@@ -35,7 +36,7 @@
 
         function passa(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + contadorBotao1;
             window.location.href = "escolhas_sentado_ministro_economia.html" + queryString;
         }
 

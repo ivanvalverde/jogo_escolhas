@@ -18,6 +18,7 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2];
+        var saida = queries[3];
 
         
 
@@ -35,8 +36,17 @@
 
         function passa(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;;
-            window.location.href = "entrar_sala_ministro_economia.html" + queryString;
+
+            if(saida == "1"){
+
+                var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+                window.location.href = "entrar_sala_ministro_economia.html" + queryString;
+
+            } else if(saida == "2"){
+
+                var queryString = "?" + contagio + "&" + tempo  + "&" + ministro_visto;
+                window.location.href = "entrar_sala_ministro_saude.html" + queryString;
+            }
         }
 
 

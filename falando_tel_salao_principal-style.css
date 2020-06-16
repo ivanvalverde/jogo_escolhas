@@ -1,0 +1,123 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("tel_estatico_salao_principal.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+.timer{
+    position: absolute;
+    left: 1180px;
+    top: 30px;
+    height: 48px;
+    width:48px;
+}
+
+#timer_contador{
+    position: absolute;
+    left: 1140px;
+    top: 25px;
+}
+
+.contagio{
+    position: absolute;
+    left: 1280px;
+    top: 30px;
+}
+
+#contagio_contador{
+    position: absolute;
+    left: 1250px;
+    top: 25px;
+}
+
+
+#conversa{
+    position: absolute;
+    left: 70px;
+    top: 10px;
+}
+
+#pergunta{
+    position: absolute;
+    left: 70px;
+    top: 100px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#pergunta2{
+    position: absolute;
+    left: 70px;
+    top: 100px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    visibility: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#pergunta3{
+    position: absolute;
+    left: 70px;
+    top: 100px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    visibility: hidden;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#cortar{
+    position: absolute;
+    left: 70px;
+    top: 130px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#despedir{
+    position: absolute;
+    left: 70px;
+    top: 160px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#desligar{
+    position: absolute;
+    left: 70px;
+    top: 160px;
+    min-width: 80px;
+    min-height: 20px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.3);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

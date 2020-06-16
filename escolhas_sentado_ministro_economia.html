@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="escolhas_sentado_ministro_economia-style.css">
 </head>
 
-<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio()">
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio();checagg()">
 
     <script>
         
@@ -18,8 +18,13 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2];
+        var contadorBotao1 = queries[3];
 
-        
+        function checagg(){
+            if (tempo <=0){
+                window.location.href = "gameOver.html"
+            }
+        }
 
         function receberTempo(){
             var tempoMax = document.getElementById("timer_contador");
@@ -35,7 +40,7 @@
 
         function passa(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + contadorBotao1;
             window.location.href = "levantar_anim_ministro_economia.html" + queryString;
         }
 

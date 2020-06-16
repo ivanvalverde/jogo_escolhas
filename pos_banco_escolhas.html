@@ -19,6 +19,7 @@
         contagio = queries[0];
         tempo = queries[1];
         ministro_visto = queries[2]
+        var saida = queries[3];
 
         function checaAcoes(){
             if (tempo <50){
@@ -28,6 +29,10 @@
             if (ministro_visto == "true"){
                 var novaSeta = document.getElementById("getout2");
                 novaSeta.style.visibility = "visible";
+            }
+
+            if (tempo <=0){
+                window.location.href = "gameOver.html"
             }
         }
 
@@ -66,14 +71,18 @@
         }
 
         function verJanela(){
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
             window.location.href = "banco_janela.html" + queryString;
         }
 
         function bancoSair(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
             window.location.href = "banco_sair.html" + queryString;
+        }
+
+        function trocaSaida(){
+            saida = 2;
         }
 
         setInterval("passa_tempo_descansando()",5000)
@@ -85,7 +94,7 @@
     <button id="janela" onclick="verJanela()"></button>
 
     <img src="seta.png" id="getout" title="Ir para a sala do ministro da economia." onclick="bancoSair()">
-    <img src="seta2.png" id="getout2" title="Ir para a sala do ministro da saúde." onclick="mesaSair()">
+    <img src="seta2.png" id="getout2" title="Ir para a sala do ministro da saúde." onclick="trocaSaida();bancoSair()">
 
     <div id="scene">
         <p id="dica">Dizem que quando estamos descansando, o tempo voa<br> e nem percebemos</p>

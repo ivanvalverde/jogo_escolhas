@@ -1,0 +1,125 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("escolhas_salao_principal.gif");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+.timer{
+    position: absolute;
+    left: 1180px;
+    top: 30px;
+    height: 48px;
+    width:48px;
+}
+
+#timer_contador{
+    position: absolute;
+    left: 1140px;
+    top: 25px;
+}
+
+.contagio{
+    position: absolute;
+    left: 1280px;
+    top: 30px;
+}
+
+#contagio_contador{
+    position: absolute;
+    left: 1250px;
+    top: 25px;
+}
+
+#tel{
+    position: absolute;
+    top: 370px;
+    left: 300px;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#saida1{
+    position: absolute;
+    left: 50px;
+    top: 300px;
+    cursor: pointer;
+    width:48px;
+    height:48px;
+    visibility: hidden;
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+    -ms-animation: fadeIn ease 20s;
+}
+
+#saida2{
+    position: absolute;
+    left: 1230px;
+    top: 300px;
+    width:48px;
+    height:48px;
+    cursor: pointer;
+    animation: fadeIn ease 20s;
+    -webkit-animation: fadeIn ease 20s;
+    -moz-animation: fadeIn ease 20s;
+    -o-animation: fadeIn ease 20s;
+    -ms-animation: fadeIn ease 20s;
+  }
+  @keyframes fadeIn {
+      0% {
+          opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+  }
+  
+  @-moz-keyframes fadeIn {
+      0% {
+          opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+  }
+  
+  @-webkit-keyframes fadeIn {
+      0% {
+          opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+  }
+  
+  @-o-keyframes fadeIn {
+      0% {
+          opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+  }
+  
+  @-ms-keyframes fadeIn {
+      0% {
+          opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+}
+
+

@@ -1,0 +1,25 @@
+
+body{
+    font-size: 20px;
+    margin:0 0 0 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#scene{
+    background-image: url("gameOver.png");
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+}
+
+#tenteDeNovo{
+    position: absolute;
+    left: 600px;
+    top: 50px;
+    border: none;
+    background-color: #8E1600;
+    color: white;
+    cursor: pointer;
+}
+
+

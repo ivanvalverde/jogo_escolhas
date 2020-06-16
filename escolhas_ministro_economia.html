@@ -5,12 +5,13 @@
     <link rel="stylesheet" href="escolhas_ministro_economia-style.css">
 </head>
 
-<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio()">
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio(); checando()">
 
     <script>
         
-
+        var contador = 0;
         var contagio;
+        var saida = 1;
         var tempo;
         var queryString = decodeURIComponent(window.location.search);
         queryString = queryString.substring(1);
@@ -19,16 +20,26 @@
         tempo = queries[1];
         ministro_visto = queries[2];
         var contadorBotao1 = 0;
+        var contadorBotao1trazido = queries[3];
 
-        
+        function checando(){
+            var seta2_saida = document.getElementById("salaMinistroSaude");
+            if (ministro_visto == "true"){
+                seta2_saida.style.visibility = "visible";
+            }
+
+            if (tempo <=0){
+                window.location.href = "gameOver.html"
+            }
+        }
+
         function dialogoGuedes1(){
-            contadorBotao1 = contadorBotao1 + 1;
             var texto = document.getElementById("falas");
             var resposta1 = document.getElementById("resposta1");
             var resposta2 = document.getElementById("resposta2");
             var pergunta = document.getElementById("pergunta");
 
-            if (contadorBotao1 <= 1){
+            if ((contadorBotao1 < 1 && contadorBotao1trazido=== undefined)||(contadorBotao1 < 1 && parseInt(contadorBotao1trazido)<1)){
                 pergunta.style.visibility = "hidden";
                 resposta1.style.visibility = "visible";
                 resposta2.style.visibility = "visible";
@@ -52,6 +63,7 @@
         }
 
         function dialogoGuedes2resposta(){
+            contadorBotao1 = contadorBotao1 + 1;
             var texto = document.getElementById("falas");
             var resposta11 = document.getElementById("resposta11");
             contagio = parseInt(contagio) + 10;
@@ -61,6 +73,7 @@
         }
 
         function dialogoGuedes3(){
+            contadorBotao1 = contadorBotao1 + 1;
             var texto = document.getElementById("falas");
             var resposta1 = document.getElementById("resposta1");
             var resposta2 = document.getElementById("resposta2");
@@ -112,7 +125,7 @@
 
         function passa(){
             tempo = tempo-1;
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
             window.location.href = "pos_janela_escolhas.html" + queryString;
         }
 
@@ -122,8 +135,29 @@
 
         function clicarPoltrona(){
 
-            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto;
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + contadorBotao1;
             window.location.href = "sentar_anim_ministro_economia.html" + queryString;
+        }
+
+        function clicarTelefone(){
+            var warning = document.getElementById("telefoneClique");
+            if(contador <= 3){
+                warning.innerText = "O telefone não está tocando!"
+                contador = contador +1
+                setTimeout(function(){warning.innerText = ""},1500)
+            } else{
+                warning.innerText = "Não torra minha paciência!"
+                setTimeout(function(){warning.innerText = ""},1500)
+            }
+        }
+
+        function saida1(){
+            var queryString = "?" + contagio + "&" + tempo + "&" + ministro_visto + "&" + saida;
+            window.location.href = "sair_sala_ministro_economia.html" + queryString;
+        }
+
+        function trocaSaida(){
+            saida = 2;
         }
 
         setInterval("passa_tempo()", 5000)
@@ -136,13 +170,17 @@
     <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes2resposta()" class="dialogo21" id="resposta11">Para os nossos bolsos, tá ok?!?</button>
     <button onclick="document.getElementById('falas').innerHTML = dialogoGuedes4()" class="dialogo4" id="sairConversa">Nada, tá ok?!?</button>
 
-    <button id="telefone" onclick=""></button>
+    <button id="telefone" onclick="clicarTelefone()"></button>
     <button id="poltrona" onclick="clicarPoltrona()"></button>
     <button id="guedes" onclick="clicarNoMinistro()"></button>
+
+    <img src="seta1_esquerda.png" id="salaoPrincipal" title="Ir para o salão principal" onclick="saida1()">
+    <img src="seta2_esquerda.png" id="salaMinistroSaude" title="Ir para a sala do ministro da saúde" onclick="trocaSaida();saida1()">
     
 
     <div id="scene">
         <p id="falas">Ministro da economia:"Bom dia Presidente! O que o sr deseja?"</p>
+        <p id="telefoneClique"></p>
     </div>
 
     <p id="timer_contador"></p>

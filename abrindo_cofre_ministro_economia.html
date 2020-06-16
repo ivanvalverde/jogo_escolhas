@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="abrindo_cofre_ministro_economia-style.css">
+</head>
+
+<body onload="document.getElementById('timer_contador').innerHTML = receberTempo(); document.getElementById('contagio_contador').innerHTML = receberContagio();checaSegredo()">
+
+    <script>
+        
+
+        var contagio;
+        var tempo;
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        contagio = queries[0];
+        tempo = queries[1];
+        var segredo = queries[2];
+
+        function checaSegredo(){
+            var saida1 = document.getElementById("saida1");
+            var tel = document.getElementById("tel");
+            if (segredo == "true"){
+                saida1.style.visibility = "visible"
+                tel.style.visibility = "hidden"
+            }
+        }
+
+        function receberTempo(){
+            var tempoMax = document.getElementById("timer_contador");
+            tempoMax.value = tempo;
+            return tempoMax.value;
+        }   
+
+        function receberContagio(){
+            var contagioMin = document.getElementById("contagio_contador");
+            contagioMin.value = contagio;
+            return contagioMin.value;
+        }
+
+        function passa(){
+            tempo = tempo-1;
+            var queryString = "?" + contagio + "&" + tempo;
+            window.location.href = "sair_salao_principal.html" + queryString;
+
+        }
+
+        function tempoCorre(){
+            tempo = tempo-1;
+        }
+
+        function decifrarCodigo(){
+            var campo = document.getElementById("campo");
+            var errado = document.getElementById("errado");
+            if(campo.value == "041813"){
+                contagio = parseInt(contagio) + 20;
+                tempo = tempo-1;
+                var queryString = "?" + contagio + "&" + tempo;
+                window.location.href = "cofre_aberto_ministro_economia.html" + queryString;
+            } else{
+                errado.style.visibility = "visible";
+                setTimeout("erroCodigo()",2000)
+            }
+        }
+
+        function erroCodigo(){
+            var errado = document.getElementById("errado");
+            errado.style.visibility = "hidden";
+        }
+
+
+        function lendoMsg(){
+            var mensagem = document.getElementById("mensagem");
+            var campo = document.getElementById("campo");
+            var lerMsg = document.getElementById("lerMsg");
+            var confirmar = document.getElementById("confirmar");
+            campo.style.visibility = "visible";
+            lerMsg.style.visibility = "hidden";
+            confirmar.style.visibility = "visible";
+            mensagem.value = "Segredo do cofre tem ###### (6 dígitos):<br>## - Apelido do teu filho pegador<br>## - Número da doença que assola o país (CODIV)<br>## - Número amaldiçoado pelos camaradas americanos";
+            return mensagem.value;
+        }
+
+        setTimeout("tempoCorre()", 6000)
+
+    </script>
+
+    <button onclick="document.getElementById('mensagem').innerHTML = lendoMsg()"  id="lerMsg">Ler mensagem</button>
+    
+    <form>
+    <input type="number" id="campo">
+    </form>
+    <button onclick="decifrarCodigo()" id="confirmar">Confirmar</button>
+
+    <div id="scene">
+        <p id="mensagem"></p>
+        <p id="errado">Errado!</p>
+    </div>
+
+    <p id="timer_contador"></p>
+    <img src="clock.gif" class="timer">
+
+
+    <p id="contagio_contador"></p>
+    <img src="CODIV18.png" class="contagio">
+    
+
+
+</body>
+
+</html>
